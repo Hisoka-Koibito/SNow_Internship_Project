@@ -1,0 +1,56 @@
+/* Center the title on the page */
+.title {
+    text-align: center;
+    margin-bottom: 20px; /* Adds space below the title */
+    font-size: 24px; /* Adjust the font size if needed */
+    font-weight: bold;
+}
+
+/* Ensure that the .users container spans full width */
+.users {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
+    gap: 20px; /* Gap between the grid items */
+    padding: 20px;
+    width: 100%; /* Make sure the container takes full width */
+    max-width: 1200px; /* Optional: you can set a max-width for larger screens */
+    margin: 0 auto; /* Center the grid horizontally */
+}
+
+/* Style the individual user blocks */
+.users a {
+    display: block;
+    text-align: center; /* Centers content inside the block */
+    border: 1px solid #ddd;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+    background-color: #fff;
+}
+
+/* Style the user avatars */
+.users img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%; /* Circular image */
+    margin-bottom: 10px;
+}
+
+/* Style the name and email text */
+.name, .email {
+    margin: 5px 0;
+    font-size: 14px;
+}
+
+/* Make sure the layout is responsive */
+@media (max-width: 768px) {
+    .users {
+        grid-template-columns: repeat(2, 1fr); /* 2 columns on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .users {
+        grid-template-columns: 1fr; /* 1 column on very small screens */
+    }
+}
