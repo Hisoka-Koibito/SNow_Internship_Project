@@ -19,8 +19,10 @@
 
 /* Style the individual user blocks */
 .users a {
-    display: block;
-    text-align: center; /* Centers content inside the block */
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centering content inside the block */
+    text-align: center;
     border: 1px solid #ddd;
     padding: 10px;
     border-radius: 8px;
@@ -53,4 +55,25 @@
     .users {
         grid-template-columns: 1fr; /* 1 column on very small screens */
     }
+}
+
+/* Additional styling to center content vertically */
+.user-details {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers content horizontally */
+    justify-content: center; /* Centers content vertically */
+    text-align: center;
+    padding: 20px;
+}
+
+/* Optional: Adjust the avatar size and add some border-radius for rounded effect */
+.avatar img {
+    max-width: 150px;
+    border-radius: 50%; /* Circular image */
+}
+
+/* Adjust spacing between the user details */
+.user-info h2 {
+    margin: 10px 0;
 }
