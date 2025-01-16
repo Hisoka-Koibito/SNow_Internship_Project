@@ -1,12 +1,28 @@
 <h2 class="title">Known Users</h2>
 <div class="users">
     <div ng-repeat="user in users" class="user-card">
-        <a href="#!/user/{{$index}}">
-            <h3 class="avatar">
-                <img ng-src="{{user.avatar}}" alt="avatar">
-            </h3>
-            <h3 class="name">{{user.last_name}}, {{user.first_name}}</h3>
+        <a href="#!/user/{{currentPage}}/{{ $index }}" class="user-info">
+            <div class="avatar-name-container">
+                <h3 class="avatar">
+                    <img ng-src="{{user.avatar}}" alt="avatar">
+                </h3>
+                <h3 class="name">{{user.last_name}}, {{user.first_name}}</h3>
+            </div>
             <h3 class="email">{{user.email}}</h3>
         </a>
+        <a href="#!/edit-user/{{currentPage}}/{{ $index }}" class="edit-link">Edit</a>
+    </div>
+</div>
+
+<!-- Pagination Container -->
+<div class="pagination-links-container">
+    <div class="create-user-link">
+        <a href="#!/create-user">Create Additional Users</a>
+    </div>
+    <div class="pagination-link">
+        <a href="" ng-click="loadPage(currentPage - 1)" ng-if="currentPage > 1">Previous Page</a>
+    </div>
+    <div class="pagination-link">
+        <a href="" ng-click="loadPage(currentPage + 1)" ng-if="currentPage < totalPages">Next Page</a>
     </div>
 </div>

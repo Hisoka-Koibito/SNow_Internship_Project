@@ -1,0 +1,35 @@
+<h2 class="title">Create a New User</h2>
+<form name="createUserForm" ng-submit="createUser()">
+    <div class="form-group">
+        <label for="first_name">First Name</label>
+        <input type="text" id="first_name" ng-model="newUser.first_name" required placeholder="Enter first name">
+    </div>
+
+    <div class="form-group">
+        <label for="last_name">Last Name</label>
+        <input type="text" id="last_name" ng-model="newUser.last_name" required placeholder="Enter last name">
+    </div>
+
+    <div class="form-group">
+        <label for="email">Email</label>
+        <input type="email" id="email" ng-model="newUser.email" required placeholder="Enter email">
+    </div>
+
+    <div class="form-group">
+        <label for="avatar">Avatar (Optional)</label>
+        <input type="url" id="avatar" ng-model="newUser.avatar" placeholder="Enter avatar URL">
+    </div>
+
+    <button type="submit" ng-disabled="!createUserForm.$valid">Create User</button>
+</form>
+
+<!-- Live Preview Section -->
+<div class="live-preview">
+    <h3>User Preview</h3>
+    <div class="user-card">
+        <img ng-src="{{newUser.avatar}}" alt="avatar">
+        <div class="name">{{newUser.last_name}}, {{newUser.first_name}}</div>
+        <div class="email">{{newUser.email}}</div>
+    </div>
+</div>
+<a href="#!/">Back to User List</a>

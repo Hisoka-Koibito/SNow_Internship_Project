@@ -1,79 +1,307 @@
-/* Center the title on the page */
-.title {
+/* General Styles */
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+h2.title {
     text-align: center;
-    margin-bottom: 20px; /* Adds space below the title */
-    font-size: 24px; /* Adjust the font size if needed */
+    font-size: 2rem;
+    margin: 20px 0;
+    color: #333;
+}
+
+/* Users Section */
+.users {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 20px;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* User Card */
+.user-card {
+    background-color: white;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 210px;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+.user-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.avatar img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    align-items: center;
+    object-fit: cover;
+    border: 3px solid #f4f4f4;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* User Card Text */
+.user-card h3, .user-card .name, .user-card .email {
+    margin: 5px 0;
+    text-align: center;
+    font-size: 1rem;
+    color: #333;
+}
+
+.user-card .name {
     font-weight: bold;
 }
 
-/* Ensure that the .users container spans full width */
-.users {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 equal columns */
-    gap: 20px; /* Gap between the grid items */
-    padding: 20px;
-    width: 100%; /* Make sure the container takes full width */
-    max-width: 1200px; /* Optional: you can set a max-width for larger screens */
-    margin: 0 auto; /* Center the grid horizontally */
-}
-
-/* Style the individual user blocks */
-.users a {
-    display: flex;
-    flex-direction: column;
-    align-items: center; /* Centering content inside the block */
-    text-align: center;
-    border: 1px solid #ddd;
-    padding: 10px;
-    border-radius: 8px;
-    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-    background-color: #fff;
-}
-
-/* Style the user avatars */
-.users img {
-    width: 100px;
-    height: 100px;
-    border-radius: 50%; /* Circular image */
+.user-card .email {
+    font-size: 0.9rem;
+    color: #777;
     margin-bottom: 10px;
 }
 
-/* Style the name and email text */
-.name, .email {
-    margin: 5px 0;
-    font-size: 14px;
+.edit-link {
+    margin-top: 5px;
+    font-size: 1rem;
+    color: #007bff;
+    text-decoration: none;
+    align-self: center;
 }
 
-/* Make sure the layout is responsive */
-@media (max-width: 768px) {
-    .users {
-        grid-template-columns: repeat(2, 1fr); /* 2 columns on smaller screens */
-    }
+.edit-link:hover {
+    text-decoration: underline;
 }
 
-@media (max-width: 480px) {
-    .users {
-        grid-template-columns: 1fr; /* 1 column on very small screens */
-    }
+/* Pagination */
+.pagination-links-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px auto;
+    max-width: 1200px;
+    padding: 0 20px;
 }
 
-/* Additional styling to center content vertically */
-.user-details {
+.create-user-link a, .pagination-link a {
+    font-size: 1rem;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.create-user-link a {
+    border: 2px solid #28a745;
+    color: #28a745;
+}
+
+.create-user-link a:hover {
+    background-color: #28a745;
+    color: white;
+    border-color: #218838;
+}
+
+.pagination-link a {
+    border: 2px solid #007bff;
+    color: #007bff;
+}
+
+.pagination-link a:hover {
+    background-color: #007bff;
+    color: white;
+    border-color: #0056b3;
+}
+
+/* Form Section */
+form {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    max-width: 450px;
+    margin: 20px auto;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    box-sizing: border-box;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px;
+    font-size: 1rem;
+    border: 2px solid #ccc;
+    border-radius: 4px;
+    transition: border-color 0.3s;
+    box-sizing: border-box;
+}
+
+.form-group input:focus {
+    border-color: #007bff;
+    outline: none;
+}
+
+/* Button Styles for Update and Delete */
+button[type="submit"], button[type="button"] {
+    padding: 12px 20px;
+    font-size: 1.2rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 100%;
+    transition: background-color 0.3s ease-in-out;
+    margin-bottom: 10px;
+}
+
+/* Update Button (Blue) */
+button[type="submit"] {
+    background-color: #007bff;
+    color: white;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+/* Disabled State for Update Button */
+button[type="submit"]:disabled {
+    background-color: #d6d6d6;
+    cursor: not-allowed;
+}
+
+/* Delete Button (Red) */
+button[type="button"] {
+    background-color: #FF0000;
+    color: white;
+}
+
+button[type="button"]:hover {
+    background-color: #8B0000;
+}
+
+button[type="button"]:disabled {
+    background-color: #e2a6a1;
+    cursor: not-allowed;
+}
+
+/* User Details Container */
+.user-details-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    padding: 20px;
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+/* Centering the user card */
+.user-details-container .user-card {
+    width: 300px;
+    height: auto;
+    margin-bottom: 20px;
+}
+
+/* Go Back Link Container */
+.go-back-link-container {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+
+/* Go Back Button */
+.go-back-link {
+    font-size: 1rem;
+    padding: 10px 20px;
+    border-radius: 4px;
+    text-decoration: none;
+    border: 2px solid #007bff;
+    color: #007bff;
+    transition: background-color 0.3s, color 0.3s, border-color 0.3s;
+}
+
+.go-back-link:hover {
+    background-color: #007bff;
+    color: white;
+    border-color: #0056b3;
+}
+
+
+/* Live Preview Section */
+.live-preview {
+    background-color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    max-width: 600px;
+    margin: 20px auto;
     display: flex;
     flex-direction: column;
-    align-items: center; /* Centers content horizontally */
-    justify-content: center; /* Centers content vertically */
+    align-items: center;
+    justify-content: center;
+}
+
+.live-preview h3 {
     text-align: center;
-    padding: 20px;
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 20px;
 }
 
-/* Optional: Adjust the avatar size and add some border-radius for rounded effect */
-.avatar img {
-    max-width: 150px;
-    border-radius: 50%; /* Circular image */
+.live-preview .user-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border-radius: 8px;
+    padding: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 210px; /* Same size as user cards */
 }
 
-/* Adjust spacing between the user details */
-.user-info h2 {
-    margin: 10px 0;
+.live-preview .user-card img {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 10px;
+    border: 3px solid #f4f4f4;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.live-preview .user-card .name,
+.live-preview .user-card .email {
+    font-size: 1rem;
+    color: #333;
+    margin: 5px 0;
+}
+
+.live-preview .user-card .name {
+    font-weight: bold;
+}
+
+.live-preview .user-card .email {
+    font-size: 0.9rem;
+    color: #777;
 }

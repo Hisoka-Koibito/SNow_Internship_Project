@@ -1,11 +1,21 @@
 <h2 class="title">User Details</h2>
-<div class="user-details">
-    <div class="avatar">
-        <img ng-src="{{details.avatar}}" alt="avatar">
+
+<div class="user-details-container">
+    <!-- User Card -->
+    <div class="user-card">
+        <div class="user-info">
+            <div class="avatar-name-container">
+                <h3 class="avatar">
+                    <img ng-src="{{details.avatar}}" alt="avatar">
+                </h3>
+                <h3 class="name">{{details.last_name}}, {{details.first_name}}</h3>
+            </div>
+            <h3 class="email">{{details.email}}</h3>
+        </div>
+        <a href="#!/edit-user/{{currentPage}}/{{details.id}}" class="edit-link">Edit</a>
+
     </div>
-    <div class="user-info">
-        <h2 class="name">{{details.last_name}}, {{details.first_name}}</h2>
-        <h2 class="email">{{details.email}}</h2>
+    <div class="go-back-link-container">
+        <a href="#!/users" class="go-back-link">Go Back</a>
     </div>
 </div>
-<a href="./">Go Back</a>
