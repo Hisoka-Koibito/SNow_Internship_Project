@@ -9,10 +9,10 @@ app.controller('CreateUserController', ['$scope', '$location', 'userList', funct
 
     // Function to create a new user
     $scope.createUser = function() {
+        // Check if the form is valid before creating the user
         if ($scope.createUserForm.$valid) {
-            userList.addUser($scope.newUser);
-
-            $location.path('/');
+            userList.addUser($scope.newUser); // Add the new user to the list
+            $location.path('/'); // Redirect to the user list page
         } else {
             console.log("Form is not valid. Please fill in all required fields.");
         }

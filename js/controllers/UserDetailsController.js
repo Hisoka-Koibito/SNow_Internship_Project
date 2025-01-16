@@ -1,14 +1,12 @@
-app.controller('UserDetailsController', ['$scope', '$routeParams', 'userList', '$window', function($scope, $routeParams, userList, $window) {
-    const { page: userPage, id: userIndex } = $routeParams;
-    $scope.currentPage = userPage;  // Store the current page in $scope.currentPage
+app.controller('UserDetailsController', ['$scope', '$routeParams', 'userList', function($scope, $routeParams, userList) {
+    const { page: userPage, id: userIndex } = $routeParams;  // Destructure to extract params
+    $scope.currentPage = userPage;
 
-    // Fetch user data and assign directly to $scope.details
+
     userList.fetchUsers(parseInt(userPage)).then(function(response) {
-        $scope.details = response.data[userIndex];
+        $scope.details = response.data[userIndex];  // Use the index to get the correct user details
     }).catch(function(error) {
         console.error("Error fetching user details:", error);
     });
 
-    // Go back to previous page
-    $scope.goBack = () => $window.history.back();
 }]);
